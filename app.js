@@ -15,7 +15,7 @@ const socketio = require('socket.io');
 let app = new express();
 let server = http.createServer(app);
 let io = socketio(server);
-const port = process.env.port || 3000;
+const port = process.env.port || 8080;
 
 //start Server on the Specified port
 
