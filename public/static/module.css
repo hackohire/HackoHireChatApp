@@ -1,0 +1,81 @@
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 0.5px grey;
+	border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: grey;
+	border-radius: 5px;
+}
+
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #424044;
+}
+
+
+.chat-bubble {
+	border-radius: 7px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+	padding: 5px 7px;
+	width: 250spx;
+	max-width: 50%;
+	position: relative;
+	word-wrap: break-word;
+}
+
+.your-mouth {
+	width: 0;
+	height: 0;
+	border-bottom: 10px solid white;
+	border-left: 10px solid transparent;
+	position: absolute;
+	bottom: 10px;
+	left: -10px;
+}
+
+.msg-content{
+    margin-top: 0.5em;
+    margin-right: 0px;
+    margin-bottom: 0.5em;
+    margin-left: 0px;
+    line-height: 120%;
+    font-size: 0.9em;
+}
+
+.you{
+	background: #ffffff;
+    margin: 0px auto 11px 13px;
+}
+.userheading{
+	padding-left: 2px;
+	color: lightseagreen;
+}
+
+.time{
+	color: rgba(0,0,0,0.4);
+    font-size: 0.6em;
+    text-align: right;
+    margin-top: -10px;
+}
+.me {
+    background: #dcf8c6;
+    margin: 0px 10px 10px auto;
+}
+.my-mouth {
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #dcf8c6;
+    border-right: 10px solid transparent;
+    position: absolute;
+    bottom: 10px;
+    left: 100%;
+}

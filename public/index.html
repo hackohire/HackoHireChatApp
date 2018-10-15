@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hack O Hire</title>
+    <!-- cdn links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="./lib/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="./lib/socket.js"></script>
+    <!-- local static content -->
+    <script src="./index.js"></script>
+    <script src="./controllers/chatController.js"></script>
+    <link rel="stylesheet" type="text/css" href="./static/module.css">
+</head>
+
+<body class="bg-light" ng-app="chatapp">
+    <div>
+        <div ng-controller="chatController">
+
+            <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+                <img src="static/logo.png">
+                <a class="navbar-brand mr-auto" style="padding-left: 5px" href="#">Hack 'O' Hire</a>
+                <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse offcanvas-collapse">
+
+                </div>
+            </nav>
+
+            <main role="main" class="container">
+                <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded shadow-sm">
+
+                </div>
+
+                <div class="my-3 p-3 bg-white rounded shadow-sm ng-hide" ng-show="showchatbody" style="min-height: 680px;max-height: 680px">
+                    <nav class="navbar navbar-light bg-light">
+                        <span class="navbar-brand">
+                            Welcome <span class="badge badge-dark">{{username}}</span>
+                        </span>
+                        <div class="sticky-top" ng-show="showTyMessage">
+                            <span class="badge badge-warning">{{typingUser}} is typing...</span>
+                        </div>
+                        <span class="badge badge-pill badge-success">
+                            <i class="far fa-bell"></i> Users Active <span class="badge badge-light" style="color: red">{{userCount}}</span>
+                        </span>
+                    </nav>
+                    <div class="jumbotron jumbotron-fluid" style="min-height: 500px;max-height: 500px;overflow-y: scroll">
+                        <div ng-repeat="msg in messages track by $index">
+                        <div class="chat-bubble you" ng-if="msg.username!=undefined">
+                            <span class="your-mouth"></span>
+                            <h6 class="userheading">{{msg.username}}</h6>
+                            <div class="msg-content">{{msg.message}}</div>
+                            <div class="time">{{time}}</div>
+                        </div>
+                        <div class="chat-bubble me" ng-if="msg.username==undefined">
+                            <div class="my-mouth"></div>
+                            <div class="msg-content">{{msg.message}}</div>
+                            <div class="time">{{msg.time}}</div>
+                        </div>
+                        </div>
+                    </div>
+                    <form class="input-group col-xs-4" ng-submit="sendMessage()">
+                        <input type="text" class="form-control" ng-keydown="ontyping()" placeholder="Type your message ...."
+                            aria-label="Recipient's username" aria-describedby="basic-addon2" ng-model="message">
+                    </form>
+                    <small class="d-block text-right mt-3">
+                        <a href="#">CopyRight @Rajesh Alonea</a>
+                    </small>
+                </div>
+
+                <!-- sing in area -->
+                <div class="my-3 p-3 bg-white rounded shadow-sm" ng-show="showSignin">
+                    <div class="d-flex justify-content-center">
+                        <form class="form-inline" name="LoginForm">
+                            <div class="form-group mb-2">
+                                Enter your name :
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label for="inputPassword2" class="sr-only">Your Name</label>
+                                <input type="text" ng-model="username" class="form-control" placeholder="your name" required >
+                            </div>
+                            <button class="btn btn-primary mb-2" ng-click="onUserIdentityClick()" ng-disabled="LoginForm.$invalid">Confirm identity</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine:bold,bolditalic|Inconsolata:italic|Droid+Sans">
+
+</html>
