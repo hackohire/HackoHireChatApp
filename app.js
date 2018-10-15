@@ -15,13 +15,13 @@ const socketio = require('socket.io');
 let app = new express();
 let server = http.createServer(app);
 let io = socketio(server);
-const port = process.env.port || 8080;
+var port = process.env.PORT || 8000;;
 
 //start Server on the Specified port
 
-server.listen(port,()=>{
+server.listen( port ,()=>{
     console.log('Server Started on the Port %d',port);
-})
+});
 
 /*@Chat Section*/
 
