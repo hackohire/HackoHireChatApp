@@ -65,7 +65,7 @@ Please read [CONTRIBUTING.md]() for details on our code of conduct, and the proc
 
 Watch this demo on below link
 
-[Rajesh Chat App](https://alonearajeshchat.herokuapp.com/)
+[Rajesh Chat App](https://aloneachat.herokuapp.com/)
 
 ## License
 
